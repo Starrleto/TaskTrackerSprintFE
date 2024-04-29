@@ -30,11 +30,6 @@
   font-family: hammersmith;
 }
 
-.eye{
-  position: absolute;
-  
-}
-
 @font-face {
   font-family: Holtwood;
   src: url('../assets//HoltwoodOneSC-Regular.ttf');

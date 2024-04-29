@@ -22,7 +22,7 @@ const logincomponent = () => {
             
         <div className='bg-green-300 p-16 w-1/2 rounded-md'>
 
-          <h1 className='text-4xl text-center mb-5 holtwood' id="main">{login ? "Login" : "Create Account"}</h1>
+          <h1 className='text-4xl text-center mb-5 holtwood'>{login ? "Login" : "Create Account"}</h1>
 
         <div className='w-full'>
             <div className="mb-2 block w-full">
@@ -36,7 +36,7 @@ const logincomponent = () => {
             </div>
             <div className='relative flex flex-col items-end'>
               <TextInput id="password1" type={show ? "text" : "password"} className='w-full'/>
-              <a onClick={setHidden} href="#"><Image src={eyeCon} alt="View password" className='absolute top-1 right-2 w-8'></Image></a>
+              <Image src={eyeCon} alt="View password" className='absolute top-1 right-2 w-8 cursor-pointer' onClick={setHidden}></Image>
             </div>
           </div>
           <div className={login ? "hidden" : ""}>
@@ -45,14 +45,14 @@ const logincomponent = () => {
             </div>
             <div className='relative flex flex-col items-end'>
               <TextInput id="password2" type={show ? "text" : "password"} className='w-full' />
-              <a onClick={setHidden} href="#"><Image src={eyeCon} alt="View password" className='absolute top-1 right-2 w-8'></Image></a>
+              <Image src={eyeCon} alt="View password" className='absolute top-1 right-2 w-8 cursor-pointer' onClick={setHidden}></Image>
             </div>
           </div>
 
           <div className='flex justify-center items-center m-4'>
             <Button type="submit" className='hammersmith'>{login ? "LOGIN" : "CREATE"}</Button>
           </div>
-          <p className='text-center'>{login ? "Don't have an account?" : "Already have an account?"} <a onClick={changePage} className='underline' href='#main'>{login ? "Create one now!" : "Login"}</a></p>
+          <p className='text-center'>{login ? "Don't have an account?" : "Already have an account?"} <span onClick={changePage} className='underline cursor-pointer'>{login ? "Create one now!" : "Login"}</span></p>
         </div>
 
     </div>
