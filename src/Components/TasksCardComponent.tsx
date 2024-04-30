@@ -6,8 +6,10 @@ import { Priority1 } from "./Priority1Component";
 
 export function TaskCardComponent() {
     return (
-        <Card href="#" className="w- w-72">
-            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <div className="px-4">
+
+        <Card style={{fontFamily: 'Hammersmith'}} href="#" className=" w-72 h-44 rounded-xl">
+            <h5 className="text-2xl tracking-tight text-gray-900 dark:text-white">
                 Task Name
             </h5>
 
@@ -16,12 +18,14 @@ export function TaskCardComponent() {
             </p>
 
             <div className="inline-flex justify-between">
-                <p className="font-bold inline-flex mt-3">
+                <p className=" inline-flex mt-3">
                     Priority Info - #
                 </p>
                 <Priority1/>
             </div>
 
         </Card>
+        </div>
+
     );
 }
