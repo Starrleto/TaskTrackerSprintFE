@@ -5,8 +5,8 @@ import Image from 'next/image'
 
 const NavbarComponent = () => {
   return (
-    <div className='bg-green-300'>
-        <Image src={Logo} alt="Logo"></Image>
+    <div className='green-gradient-bg flex p-4'>
+        <Image src={Logo} alt="Logo" className='w-1/6'></Image>
     </div>
   )
 }
