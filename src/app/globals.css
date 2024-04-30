@@ -26,10 +26,23 @@
   font-family: holtwood;
 }
 
+.hammersmith{
+  font-family: hammersmith;
+}
+
+.green-bg{
+  background-color: #3EBE9F;
+}
+
+.green-gradient-bg{
+  background-image: linear-gradient(to right, #AEE6D9, #3EBE9F);
+}
+
 @font-face {
   font-family: Holtwood;
   src: url('../assets//HoltwoodOneSC-Regular.ttf');
 }
+
 
 ::-webkit-scrollbar {
   width: 0;
@@ -44,4 +57,10 @@
   color: rgba(11, 125, 97, 1) !important;
 }
 
+
+=======
+@font-face {
+  font-family: hammersmith;
+  src: url('../assets//HammersmithOne-Regular.ttf');
+}
 
