@@ -43,7 +43,24 @@
   src: url('../assets//HoltwoodOneSC-Regular.ttf');
 }
 
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+@font-face {
+  font-family: Hammersmith;
+  src: url(../assets/HammersmithOne-Regular.ttf);
+}
+
+.selectTxt > .text-gray-900 {
+  color: rgba(11, 125, 97, 1) !important;
+}
+
+
+=======
 @font-face {
   font-family: hammersmith;
   src: url('../assets//HammersmithOne-Regular.ttf');
 }
+
