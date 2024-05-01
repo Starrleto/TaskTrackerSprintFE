@@ -6,6 +6,7 @@ import eyeCon from '../assets/EyeSlash.png'
 import { Button, Label, TextInput } from "flowbite-react";
 import { useRouter } from "next/navigation";
 
+import {Login, addUser} from '../DataServices/script';
 
 
 export default function Home() {
@@ -33,31 +34,46 @@ export default function Home() {
     setShow2(!show2);
   }
 
-  function submit(){
+  async function submit(){
     
+    // Login User--------------------------------
     if(login){
 
-      if(username == "" || password == ""){
+      if(username == "" || password == ""){ // Blank Error
         setError("Please enter your username and password.");
       }
       else{
+        
+        const loginInfo:LoginDTO = {username, password} ;
+        console.log(await Login(loginInfo));
+
         setError("");
         router.push('/Dashboard');
+
       }
 
     }
+    // Add User---------------------------------------
     else{
 
-      if(password != password2){
+      if(password != password2){ // Unmatched Passwords error
         setError("Your passwords do not match."); return;
       } else { setError(""); }
 
-      if(username == "" || password == "" || password2 == ""){
+      if(username == "" || password == "" || password2 == ""){ // Blank Error
         setError("Please fill out every field.");
       }
       else{
+
+        const newUser:addDTO = {id:0, username, password};
+
+        console.log("New user");
+        console.log(await addUser(newUser));
+
         setError("");
         setLogin(true);
+
+
       }
 
     }
