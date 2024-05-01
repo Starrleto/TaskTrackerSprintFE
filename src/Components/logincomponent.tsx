@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Button, Label, TextInput } from "flowbite-react";
 import { useRouter } from "next/navigation";
 
-const LoginComponent = () => {
+export const LoginComponent = () => {
 
   const router = useRouter();
   const [show, setShow] = useState<boolean>(false);
