@@ -11,11 +11,11 @@ const page = () => {
   const [openModal, setOpenModal] = useState(false);
 
   function createBoard() {
-
+    setOpenModal(false);
   }
 
   function joinBoard() {
-
+    setOpenModal(false);
   }
 
   return (
@@ -50,12 +50,12 @@ const page = () => {
             <div className='flex flex-col justify-center items-center space-y-3 text-center'>
               <h1>Enter Code</h1>
               <TextInput type="text" placeholder="Enter Code" />
-              <Button color="success">JOIN</Button>
+              <Button color="success" onClick={joinBoard}>JOIN</Button>
             </div>
             <div className='flex flex-col justify-center items-center space-y-3'>
               <h1>Create New</h1>
               <TextInput type="text" placeholder="Name Board" />
-              <Button color="success">CREATE</Button>
+              <Button color="success" onClick={createBoard}>CREATE</Button>
             </div>
 
           </div>
