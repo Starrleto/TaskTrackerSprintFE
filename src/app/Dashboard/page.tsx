@@ -6,7 +6,7 @@ import { Avatar, Button, Modal, ModalHeader, TextInput } from "flowbite-react";
 import { BoardComponent } from '@/Components/BoardComponent';
 import LoginNavbarComponent from '@/Components/LoginNavbarComponent';
 
-const page = () => {
+const Dashboard = () => {
 
   const [openModal, setOpenModal] = useState(false);
 
@@ -67,4 +67,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Dashboard
