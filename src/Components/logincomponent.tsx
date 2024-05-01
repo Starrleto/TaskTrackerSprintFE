@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Button, Label, TextInput } from "flowbite-react";
 import { useRouter } from "next/navigation";
 
-export const LoginComponent = () => {
+export function LoginComponent() {
 
   const router = useRouter();
   const [show, setShow] = useState<boolean>(false);
@@ -100,7 +100,5 @@ export const LoginComponent = () => {
         </div>
 
     </div>
-  )
+  );
 }
-
-export default LoginComponent;
