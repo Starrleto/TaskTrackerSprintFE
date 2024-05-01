@@ -1,7 +1,7 @@
 'use client'
 
 import LoginComponent from "../Components/LoginComponent"
-import NavbarComponent from "@/Components/NavbarComponent";
+import NavbarComponent from "../Components/NavbarComponent";
 
 
 export default function Home() {

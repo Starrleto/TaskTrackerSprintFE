@@ -13,9 +13,13 @@ const LoginNavbarComponent = () => {
     router.push("/")
   }
 
+  function dashboard(){
+    router.push("/Dashboard")
+  }
+
   return (
     <div className='green-gradient-bg flex p-4 justify-between items-center'>
-        <Image src={Logo} alt="Logo" className='w-1/6'></Image>
+        <Image src={Logo} alt="Logo" className='w-1/6 cursor-pointer' onClick={dashboard}></Image>
         <Dropdown label="" dismissOnClick={false} renderTrigger={() => <div><Avatar rounded /></div>}>
           <Dropdown.Item className='font-bold'>PROFILE</Dropdown.Item>
           <Dropdown.Item className='text-green-500 font-bold'>CREATE BOARD</Dropdown.Item>

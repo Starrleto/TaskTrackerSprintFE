@@ -1,4 +1,3 @@
-import NavbarComponent from '@/Components/NavbarComponent'
 import React from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import { Priority1 } from '@/Components/Priority1Component';
@@ -7,6 +6,7 @@ import { Priority3 } from '@/Components/Priority3Component';
 import { TaskCardComponent } from '@/Components/TasksCardComponent';
 import { AddTaskModalComponent } from '@/Components/AddTaskModalComponent';
 import { CustomFlowbiteTheme, Flowbite, Tooltip } from 'flowbite-react';
+import LoginNavbarComponent from '@/Components/LoginNavbarComponent';
 
 const BoardsPage = () => {
 
@@ -37,7 +37,7 @@ const BoardsPage = () => {
     return (
         <div className='bg-mainBg h-screen'>
 
-            <NavbarComponent />
+            <LoginNavbarComponent></LoginNavbarComponent>
 
             {/* OUR BOARD, PRIORITY BUTTONS AND ADD MODAL */}
             <div className='p-14 inline-flex'>

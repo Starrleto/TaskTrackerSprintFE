@@ -53,7 +53,8 @@ const LoginComponent = () => {
         setError("Please fill out every field.");
       }
       else{
-        
+        setError("");
+        setLogin(true);
       }
 
     }
