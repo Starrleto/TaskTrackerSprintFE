@@ -44,7 +44,11 @@ export default function Home() {
       }
       else{
         
-        const loginInfo:LoginDTO = {username, password} ;
+        const loginInfo:LoginDTO = {
+          username:username, 
+          password:password
+        }
+
         console.log(await Login(loginInfo));
 
         setError("");
@@ -65,7 +69,11 @@ export default function Home() {
       }
       else{
 
-        const newUser:addDTO = {id:0, username, password};
+        const newUser:addDTO = {
+          id:0, 
+          username:username, 
+          password:password
+        }
 
         console.log("New user");
         console.log(await addUser(newUser));
