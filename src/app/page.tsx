@@ -1,6 +1,6 @@
 'use client'
 
-import LoginComponent from "../Components/logincomponent"
+import LoginComponent from "../Components/LoginComponent"
 import NavbarComponent from "@/Components/NavbarComponent";
 
 
