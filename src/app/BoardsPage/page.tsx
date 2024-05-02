@@ -54,12 +54,22 @@ const BoardsPage = () => {
                 </div>
                 <div>
                     <Flowbite theme={{ theme: customTheme }}>
-                        <Tooltip aria-multiline className='bg-white text-black p-10 px-20 border' content="Invite Code<br />code" trigger='click'  placement="right">
-                            
+                        <Tooltip
+                            aria-multiline
+                            className='bg-white text-black p-10 px-20 border'
+                            content={
+                                <div>
+                                    <div style={{ fontSize: '20px', fontFamily: 'Hammersmith' }}>Invite Code</div>
+                                    <div className='text-center mt-3' style={{ fontSize: '30px', color: 'blue', fontFamily: 'Holtwood' }}>code</div>
+                                </div>
+                            }
+                            trigger='click'
+                            placement="right"
+                        >
                             <AddIcon className='cursor-pointer' style={{ fontSize: 50 }} />
-
                         </Tooltip>
                     </Flowbite>
+
                 </div>
                 <div>
                 </div>

@@ -3,12 +3,20 @@
 
 import { Card } from "flowbite-react";
 import { Priority1 } from "./Priority1Component";
+import { useState } from "react";
+import { AddedTaskModalComponent } from "./AddedTasksModalComponent";
 
 export function TaskCardComponent() {
+    const [openModal, setOpenModal] = useState<boolean>(false);
+
+    const handleCardClick = () => {
+        setOpenModal(true);
+    }
+
     return (
         <div className="px-4">
 
-        <Card style={{fontFamily: 'Hammersmith'}} href="#" className=" w-72 h-44 rounded-xl">
+        <Card onClick={handleCardClick} style={{fontFamily: 'Hammersmith'}} href="#" className=" w-72 h-44 rounded-xl">
             <h5 className="text-2xl tracking-tight text-gray-900 dark:text-white">
                 Task Name
             </h5>
@@ -25,6 +33,9 @@ export function TaskCardComponent() {
             </div>
 
         </Card>
+
+        {openModal && <AddedTaskModalComponent/>}
+
         </div>
 
     );

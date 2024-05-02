@@ -9,8 +9,8 @@ import Avatar from "@mui/material/Avatar";
 import CommentsComponent from "./CommentsComponent";
 
 
-export function AddTaskModalComponent() {
-    const [openModal, setOpenModal] = useState(true);
+export function AddedTaskModalComponent() {
+    const [openModal, setOpenModal] = useState(false);
 
     useEffect(() => {
         setOpenModal(false);
@@ -18,9 +18,6 @@ export function AddTaskModalComponent() {
 
     return (
         <>
-            <div className=" cursor-pointer">
-                <AddIcon onClick={() => setOpenModal(true)} style={{ fontSize: 30 }} />
-            </div>
 
             <Modal className="" style={{ fontFamily: 'Hammersmith' }} show={openModal} size="5xl" onClose={() => setOpenModal(false)} popup>
                 <Modal.Header className="pl-14 pr-14 pt-10">
@@ -85,7 +82,9 @@ export function AddTaskModalComponent() {
                     </div>
                 </Modal.Body>
 
+                <p>Comments</p>
 
+                <CommentsComponent/>
             </Modal>
         </>
     );
