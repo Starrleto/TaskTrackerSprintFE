@@ -26,4 +26,44 @@ const addUser = async(user:addDTO) => {
     return data;
 }
 
-export {Login, addUser}
+const addBoard = async(newBoard: BoardDTO) => {
+
+    const promise = await fetch('https://tasktracksprint.azurewebsites.net/api/Board/AddBoard', {
+        method:'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newBoard)
+    });
+    const data = await promise.json();
+    return data;
+
+}
+
+const getBoardByUsername = async(name:string) => {
+
+    const promise = await fetch('https://tasktracksprint.azurewebsites.net/api/Board/GetBoardsByUsername', {
+        method:'Get',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(name)
+    });
+    const data = await promise.json();
+    console.log(data);
+    return data;
+
+}
+
+const getTaskItems = async() => {
+
+    const promise = await fetch('https://tasktracksprint.azurewebsites.net/api/Task/GetAllTaskItems');
+    const data = await promise.json();
+    console.log(data);
+    return data;
+
+}
+
+export {Login, addUser, getTaskItems, addBoard}
