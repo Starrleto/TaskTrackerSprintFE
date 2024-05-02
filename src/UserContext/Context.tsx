@@ -5,8 +5,8 @@ import { createContext, useState, useContext } from "react"
 interface IContextValue {
   user: string,
   setUser : (user:string) => void
-  board: Board,
-  setBoard : (board:Board) => void
+  boardName: string,
+  setBoardName : (board:string) => void
 }
 
 export const Context = createContext<IContextValue>({} as IContextValue);
@@ -17,10 +17,10 @@ export const AppWrapper = ({
   }>) => {
 
     const [user, setUser] = useState<string>("");
-    const [board, setBoard] = useState<Board>({});
+    const [boardName, setBoardName] = useState<string>("");
 
     return (
-        <Context.Provider value={{user, setUser, board, setBoard}}>
+        <Context.Provider value={{user, setUser, boardName, setBoardName}}>
             {children}
         </Context.Provider>
     )

@@ -1,8 +1,7 @@
 'use client'
 
-import NavbarComponent from '@/Components/NavbarComponent'
 import React, {useState} from 'react'
-import { Avatar, Button, Modal, ModalHeader, TextInput } from "flowbite-react";
+import { Avatar, Button, Modal, TextInput } from "flowbite-react";
 import { BoardComponent } from '@/Components/BoardComponent';
 import LoginNavbarComponent from '@/Components/LoginNavbarComponent';
 import { useAppContext } from '@/UserContext/Context';

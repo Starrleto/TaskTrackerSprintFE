@@ -1,11 +1,14 @@
 import React from 'react'
 import { useRouter } from "next/navigation";
+import { useAppContext } from '@/UserContext/Context';
 
 export const BoardComponent = (props: props) => {
 
+  const data = useAppContext();
   const router = useRouter();
 
   function viewBoard(){
+    data.setBoardName(props.name)
     router.push("/BoardsPage");
   }
 
