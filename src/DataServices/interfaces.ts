@@ -9,6 +9,10 @@ interface addDTO {
     password:string
 }
 
-interface Board {
-
+interface BoardDTO {
+    id: number,
+    name: string,
+    inviteCode: string,
+    memberList: string,
+    isDeleted: boolean
 }
