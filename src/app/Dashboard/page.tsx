@@ -1,14 +1,15 @@
 'use client'
 
-import NavbarComponent from '@/Components/NavbarComponent'
 import React, {useState} from 'react'
-import { Avatar, Button, Modal, ModalHeader, TextInput } from "flowbite-react";
+import { Avatar, Button, Modal, TextInput } from "flowbite-react";
 import { BoardComponent } from '@/Components/BoardComponent';
 import LoginNavbarComponent from '@/Components/LoginNavbarComponent';
+import { useAppContext } from '@/UserContext/Context';
 
 const Dashboard = () => {
 
   const [openModal, setOpenModal] = useState(false);
+  const data = useAppContext();
 
   function createBoard() {
     setOpenModal(false);
@@ -26,7 +27,7 @@ const Dashboard = () => {
       <div className='grid lg:grid-cols-2 mt-10'>
         <div className='text-center'>
            <Avatar rounded size="xl" />
-           <h1>Username</h1>
+           <h1>{data.user}</h1>
            <p>Joined </p>
         </div>
         <div className='text-center'>

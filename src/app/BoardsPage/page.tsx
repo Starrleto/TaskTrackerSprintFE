@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import { Priority1 } from '@/Components/Priority1Component';
@@ -7,8 +9,11 @@ import { TaskCardComponent } from '@/Components/TasksCardComponent';
 import { AddTaskModalComponent } from '@/Components/AddTaskModalComponent';
 import { CustomFlowbiteTheme, Flowbite, Tooltip } from 'flowbite-react';
 import LoginNavbarComponent from '@/Components/LoginNavbarComponent';
+import { useAppContext } from '@/UserContext/Context';
 
 const BoardsPage = () => {
+
+    const data = useAppContext();
 
     const customTheme: CustomFlowbiteTheme = {
         tooltip: {
@@ -41,7 +46,7 @@ const BoardsPage = () => {
 
             {/* OUR BOARD, PRIORITY BUTTONS AND ADD MODAL */}
             <div className='p-14 inline-flex'>
-                <h1 style={{ fontFamily: 'Hammersmith' }} className='text-4xl mt-2'>OUR BOARD</h1>
+                <h1 style={{ fontFamily: 'Hammersmith' }} className='text-4xl mt-2'>{data.boardName}</h1>
                 <div className='ml-2 inline-flex'>
                     <Priority1 />
                     <Priority2 />

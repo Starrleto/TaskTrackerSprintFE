@@ -8,3 +8,7 @@ interface addDTO {
     username:string,
     password:string
 }
+
+interface Board {
+
+}

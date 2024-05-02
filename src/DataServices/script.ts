@@ -10,7 +10,7 @@ const Login = async (loginDTO:LoginDTO) => {
         body: JSON.stringify(loginDTO)
     });
     const data = await promise.json();
-    return data;
+    return data.token != undefined;
 
 }
 
@@ -18,7 +18,6 @@ const addUser = async(user:addDTO) => {
     const promise = await fetch('https://tasktracksprint.azurewebsites.net/api/User/AddUser', {
         method:'POST',
         headers: {
-            'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(user)
