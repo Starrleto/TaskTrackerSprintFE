@@ -10,7 +10,7 @@ const Login = async (loginDTO:LoginDTO) => {
         body: JSON.stringify(loginDTO)
     });
     const data = await promise.json();
-    return data;
+    return data.token != undefined;
 
 }
 
