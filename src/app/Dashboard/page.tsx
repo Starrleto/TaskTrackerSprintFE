@@ -40,6 +40,10 @@ const Dashboard = () => {
     setBoards(items);
   }
 
+  // useEffect(() => {
+  //   getBoardsByUser();
+  // }, [])
+
   return (
     
     <div>
@@ -58,7 +62,9 @@ const Dashboard = () => {
               <h1 className='text-4xl font-bold'>MY BOARDS</h1>
               <p className='text-6xl font-extralight cursor-pointer' onClick={() => setOpenModal(true)}>+</p>
             </div>
-            {
+            <BoardComponent name="Example"></BoardComponent>
+            <BoardComponent name="Example2"></BoardComponent>
+            {/* {
               boards.map(e => {
 
                 return(
@@ -66,7 +72,7 @@ const Dashboard = () => {
                 );
 
               })
-            }
+            } */}
           </div>
 
         </div>
