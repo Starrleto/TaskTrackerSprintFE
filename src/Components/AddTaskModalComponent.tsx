@@ -1,20 +1,50 @@
 
 "use client";
 
-import { Button, Modal, ModalHeader, Select } from "flowbite-react";
+import { Button, Modal, Select } from "flowbite-react";
 import { useEffect, useState } from "react";
-import { HiOutlineExclamationCircle } from "react-icons/hi";
 import AddIcon from '@mui/icons-material/Add';
 import Avatar from "@mui/material/Avatar";
-import CommentsComponent from "./CommentsComponent";
 
 
 export function AddTaskModalComponent() {
     const [openModal, setOpenModal] = useState(true);
-
+    const [id, setId] = useState<number>(0);
+    const [userId, setUserId] = useState<number>(0)
+    const [description, setDescription] = useState<string>("")
+    const [title, setTitle] = useState<string>("");
+    const [assignedTo, setAssignedTo] = useState<string>("");
+    const [status, setStatus] = useState<string>("");
+    const [priority, setPriority] = useState<string>("");
+    
     useEffect(() => {
         setOpenModal(false);
     }, [])
+
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+
+    const formattedDate = `${year}-${month}-${day}`;
+
+    const handleAddTask = async () => {
+        let userId = Number(localStorage.getItem("UserId"))
+        console.log(userId)
+
+        const newTask: ITasks = {
+            id: id,
+            userId: userId,
+            description: description,
+            title: title,
+            dateCreated: formattedDate,
+            assignedTo: assignedTo,
+            status: status,
+            priority: priority,
+            isDeleted: false
+        }
+        
+    }
 
     return (
         <>
@@ -24,9 +54,9 @@ export function AddTaskModalComponent() {
 
             <Modal className="" style={{ fontFamily: 'Hammersmith' }} show={openModal} size="5xl" onClose={() => setOpenModal(false)} popup>
                 <Modal.Header className="pl-14 pr-14 pt-10">
-                    <h3 className="mb-5 text-3xl font-normal">
+                    <p className="mb-5 text-3xl font-normal">
                         Task Title
-                    </h3>
+                    </p>
                 </Modal.Header>
 
                 <Modal.Body className="pl-14 pb-14 pr-14">
@@ -43,7 +73,7 @@ export function AddTaskModalComponent() {
                                     <Button className="h-9 p-0 w-24 enabled:hover:bg-cancelBtn focus:ring-0 bg-cancelBtn"> Cancel </Button>
                                 </div>
                                 <div>
-                                    <Button className="h-9 p-0 w-24 enabled:hover:bg-greenTxt focus:ring-0 bg-greenTxt"> Create </Button>
+                                    <Button onClick={handleAddTask} className="h-9 p-0 w-24 enabled:hover:bg-greenTxt focus:ring-0 bg-greenTxt"> Create </Button>
                                 </div>
                             </div>
                         </div>

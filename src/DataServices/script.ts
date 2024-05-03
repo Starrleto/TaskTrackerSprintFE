@@ -1,3 +1,4 @@
+const url = 'https://tasktracksprint.azurewebsites.net/api/'
 
 const Login = async (loginDTO:LoginDTO) => {
 
@@ -23,6 +24,25 @@ const addUser = async(user:addDTO) => {
         body: JSON.stringify(user)
     });
     const data = await promise.json();
+    return data;
+}
+
+
+const addTask = async(task: ITasks) => {
+    const res = await fetch(url + 'Task/AddTaskItem', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+    })
+
+    if(!res.ok){
+        const message = 'an error has occured! ' + res.status;
+        throw new Error(message);
+    }
+    
+    const data = await res.json();
     return data;
 }
 
@@ -66,4 +86,5 @@ const generateCode = async() => {
     return data;
 }
 
-export {Login, addUser, getTaskItems, addBoard, getBoardsByUsername, generateCode}
+export {Login, addUser, getTaskItems, addBoard, getBoardsByUsername, generateCode, Login, addUser, addTask}
+

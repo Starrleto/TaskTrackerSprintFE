@@ -4,7 +4,7 @@
 import { Card } from "flowbite-react";
 import { Priority1 } from "./Priority1Component";
 import { useState } from "react";
-import { AddedTaskModalComponent } from "./AddedTasksModalComponent";
+import { AddedTasksModalComponent } from "./AddedTasksModalComponent";
 
 export function TaskCardComponent() {
     const [openModal, setOpenModal] = useState<boolean>(false);
@@ -34,7 +34,7 @@ export function TaskCardComponent() {
 
         </Card>
 
-        {openModal && <AddedTaskModalComponent/>}
+        <AddedTasksModalComponent open={openModal} setOpen={setOpenModal}/>
 
         </div>
 

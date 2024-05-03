@@ -3,7 +3,7 @@ import React from 'react'
 
 const CommentsComponent = () => {
     return (
-        <div className='rounded-lg mx-14'>
+        <div className='rounded-lg'>
 
             <div className='inline-flex p-5'>
                 <div className=" px-5">

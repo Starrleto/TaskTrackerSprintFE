@@ -8,22 +8,21 @@ import AddIcon from '@mui/icons-material/Add';
 import Avatar from "@mui/material/Avatar";
 import CommentsComponent from "./CommentsComponent";
 
+interface AddedTaskProps {
+    open: boolean;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export function AddedTaskModalComponent() {
-    const [openModal, setOpenModal] = useState(false);
-
-    useEffect(() => {
-        setOpenModal(false);
-    }, [])
+export const AddedTasksModalComponent: React.FC<AddedTaskProps> = ({ open, setOpen }) => {
 
     return (
         <>
 
-            <Modal className="" style={{ fontFamily: 'Hammersmith' }} show={openModal} size="5xl" onClose={() => setOpenModal(false)} popup>
+            <Modal className="" style={{ fontFamily: 'Hammersmith' }} show={open} size="5xl" onClose={() => setOpen(false)} popup>
                 <Modal.Header className="pl-14 pr-14 pt-10">
-                    <h3 className="mb-5 text-3xl font-normal">
+                    <p className="mb-5 text-3xl font-normal">
                         Task Title
-                    </h3>
+                    </p>
                 </Modal.Header>
 
                 <Modal.Body className="pl-14 pb-14 pr-14">
@@ -80,11 +79,18 @@ export function AddedTaskModalComponent() {
                         </div>
 
                     </div>
-                </Modal.Body>
 
-                <p>Comments</p>
+                    <p className="">Comments</p>
+
+                <div className="border-2 border-black h-32 rounded-lg">
+
+                </div>
+
 
                 <CommentsComponent/>
+                </Modal.Body>
+                
+                
             </Modal>
         </>
     );
