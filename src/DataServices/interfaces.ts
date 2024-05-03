@@ -23,6 +23,7 @@ interface ITasks {
     assignedTo: string
     status: string
     priority: string
+    isDeleted: boolean
 }
 
 interface BoardDTO {
