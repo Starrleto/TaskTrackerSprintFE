@@ -13,7 +13,15 @@ interface AddedTaskProps {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const AddedTasksModalComponent: React.FC<AddedTaskProps> = ({ open, setOpen }) => {
+export const AddedTasksModalComponent: React.FC<AddedTaskProps> = ({ open, setOpen }, prop: {
+    id: number, userId: number, description: string,
+    title: string,
+    dateCreated: string,
+    assignedTo: string,
+    status: string,
+    priority: string,
+    isDeleted: boolean
+}) => {
 
     return (
         <>
@@ -21,7 +29,7 @@ export const AddedTasksModalComponent: React.FC<AddedTaskProps> = ({ open, setOp
             <Modal className="" style={{ fontFamily: 'Hammersmith' }} show={open} size="5xl" onClose={() => setOpen(false)} popup>
                 <Modal.Header className="pl-14 pr-14 pt-10">
                     <p className="mb-5 text-3xl font-normal">
-                        Task Title
+                        {prop.title}
                     </p>
                 </Modal.Header>
 
@@ -31,7 +39,7 @@ export const AddedTasksModalComponent: React.FC<AddedTaskProps> = ({ open, setOp
                         <div className="col-span-3">
                             <p className="text-xl pb-1"> Description </p>
                             <div className=" bg-taskDescBg rounded-md h-52 p-5 overflow-y-scroll">
-                                <p>A short description of the task you are viewing. When login has been created by backend people, test login functionality using Postman. Endpoint is https://azure.nonsense/ujsbuaskbfjksA short description of the task you are viewing. When login has been created by backend people, test login functionality using Postman. Endpoint is https://azure.nonsense/ujsbuaskbfjksA short description of the task you are viewing. When login has been created by backend people, test login functionality using Postman. Endpoint is https://azure.nonsense/ujsbuaskbfjks</p>
+                                <p>{prop.description}</p>
                             </div>
 
                             <div className="flex justify-end pt-4">
@@ -82,15 +90,15 @@ export const AddedTasksModalComponent: React.FC<AddedTaskProps> = ({ open, setOp
 
                     <p className="">Comments</p>
 
-                <div className="border-2 border-black h-32 rounded-lg">
+                    <div className="border-2 border-black h-32 rounded-lg">
 
-                </div>
+                    </div>
 
 
-                <CommentsComponent/>
+                    <CommentsComponent />
                 </Modal.Body>
-                
-                
+
+
             </Modal>
         </>
     );

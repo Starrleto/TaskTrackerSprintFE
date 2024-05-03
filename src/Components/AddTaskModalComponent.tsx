@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Button, Modal, Select } from "flowbite-react";
+import { Button, Modal, Select, TextInput } from "flowbite-react";
 import { useEffect, useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import Avatar from "@mui/material/Avatar";
@@ -9,6 +9,7 @@ import Avatar from "@mui/material/Avatar";
 
 export function AddTaskModalComponent() {
     const [openModal, setOpenModal] = useState(true);
+    const [taskItems, setTaskItems] = useState<ITasks[]>([])
     const [id, setId] = useState<number>(0);
     const [userId, setUserId] = useState<number>(0)
     const [description, setDescription] = useState<string>("")
@@ -28,6 +29,14 @@ export function AddTaskModalComponent() {
 
     const formattedDate = `${year}-${month}-${day}`;
 
+    const handleDescription = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setDescription(e.target.value)
+    }
+
+    const handleTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.target.value)
+    }
+
     const handleAddTask = async () => {
         let userId = Number(localStorage.getItem("UserId"))
         console.log(userId)
@@ -43,7 +52,9 @@ export function AddTaskModalComponent() {
             priority: priority,
             isDeleted: false
         }
-        
+        setTaskItems(prevTaskItems => [...prevTaskItems, newTask])
+        console.log(newTask);
+
     }
 
     return (
@@ -54,9 +65,11 @@ export function AddTaskModalComponent() {
 
             <Modal className="" style={{ fontFamily: 'Hammersmith' }} show={openModal} size="5xl" onClose={() => setOpenModal(false)} popup>
                 <Modal.Header className="pl-14 pr-14 pt-10">
-                    <p className="mb-5 text-3xl font-normal">
+                <p className="mb-5 text-3xl font-normal">
                         Task Title
                     </p>
+                    <TextInput onChange={handleTitle} placeholder="Enter Title"></TextInput>
+                   
                 </Modal.Header>
 
                 <Modal.Body className="pl-14 pb-14 pr-14">
@@ -64,9 +77,7 @@ export function AddTaskModalComponent() {
 
                         <div className="col-span-3">
                             <p className="text-xl pb-1"> Description </p>
-                            <div className=" bg-taskDescBg rounded-md h-52 p-5 overflow-y-scroll">
-                                <p>A short description of the task you are viewing. When login has been created by backend people, test login functionality using Postman. Endpoint is https://azure.nonsense/ujsbuaskbfjksA short description of the task you are viewing. When login has been created by backend people, test login functionality using Postman. Endpoint is https://azure.nonsense/ujsbuaskbfjksA short description of the task you are viewing. When login has been created by backend people, test login functionality using Postman. Endpoint is https://azure.nonsense/ujsbuaskbfjks</p>
-                            </div>
+                            <TextInput onChange={handleDescription} placeholder="Enter description here"></TextInput>
 
                             <div className="flex justify-end pt-4">
                                 <div className="pr-5">
