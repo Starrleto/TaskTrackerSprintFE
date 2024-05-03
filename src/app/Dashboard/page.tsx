@@ -1,10 +1,11 @@
 'use client'
 
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { Avatar, Button, Modal, TextInput } from "flowbite-react";
 import { BoardComponent } from '@/Components/BoardComponent';
 import LoginNavbarComponent from '@/Components/LoginNavbarComponent';
 import { useAppContext } from '@/UserContext/Context';
+import { addBoard, generateCode, getBoardsByUsername } from '@/DataServices/script';
 
 const Dashboard = () => {
 
@@ -13,14 +14,35 @@ const Dashboard = () => {
 
   const[newBoardName, setNewName] = useState<string>("");
   const[code, setCode] = useState<string>("");
+  const [boards, setBoards] = useState<BoardDTO[]>([]);
 
-  function createBoard() {
+  async function createBoard() {
+
+    const newBoard = {
+      id: 0,
+      name: newBoardName,
+      inviteCode: await generateCode(),
+      memberList: "",
+      isDeleted: false
+    }
+
+    addBoard(newBoard);
+
     setOpenModal(false);
   }
 
   function joinBoard() {
     setOpenModal(false);
   }
+
+  async function getBoardsByUser() {
+    const items = await getBoardsByUsername(data.user);
+    setBoards(items);
+  }
+
+  // useEffect(() => {
+  //   getBoardsByUser();
+  // }, [])
 
   return (
     
@@ -41,7 +63,16 @@ const Dashboard = () => {
               <p className='text-6xl font-extralight cursor-pointer' onClick={() => setOpenModal(true)}>+</p>
             </div>
             <BoardComponent name="Example"></BoardComponent>
-            <BoardComponent name="ExampleTwo"></BoardComponent>
+            <BoardComponent name="Example2"></BoardComponent>
+            {/* {
+              boards.map(e => {
+
+                return(
+                  <BoardComponent name={e.name}></BoardComponent>
+                );
+
+              })
+            } */}
           </div>
 
         </div>

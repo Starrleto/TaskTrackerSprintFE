@@ -37,20 +37,14 @@ const addBoard = async(newBoard: BoardDTO) => {
         body: JSON.stringify(newBoard)
     });
     const data = await promise.json();
+    console.log(data);
     return data;
 
 }
 
-const getBoardByUsername = async(name:string) => {
+const getBoardsByUsername = async(name:string) => {
 
-    const promise = await fetch('https://tasktracksprint.azurewebsites.net/api/Board/GetBoardsByUsername', {
-        method:'Get',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(name)
-    });
+    const promise = await fetch('https://tasktracksprint.azurewebsites.net/api/Board/GetBoardByUsername/'+name);
     const data = await promise.json();
     console.log(data);
     return data;
@@ -66,4 +60,10 @@ const getTaskItems = async() => {
 
 }
 
-export {Login, addUser, getTaskItems, addBoard}
+const generateCode = async() => {
+    const promise = await fetch('https://tasktracksprint.azurewebsites.net/api/Board/GenerateRandomInviteCode');
+    const data = await promise.text();
+    return data;
+}
+
+export {Login, addUser, getTaskItems, addBoard, getBoardsByUsername, generateCode}
