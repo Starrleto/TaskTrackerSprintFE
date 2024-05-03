@@ -12,3 +12,15 @@ interface addDTO {
 interface Board {
 
 }
+
+interface ITasks {
+    id: number
+    userId: number
+    description: string
+    title: string
+    dateCreated: string
+    assignedTo: string
+    status: string
+    priority: string
+    isDeleted: boolean
+}

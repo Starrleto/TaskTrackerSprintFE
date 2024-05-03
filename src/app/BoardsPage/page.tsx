@@ -48,9 +48,12 @@ const BoardsPage = () => {
             <div className='p-14 inline-flex'>
                 <h1 style={{ fontFamily: 'Hammersmith' }} className='text-4xl mt-2'>{data.boardName}</h1>
                 <div className='ml-2 inline-flex'>
-                    <Priority1 />
+                    <Priority1></Priority1>
+                    <Priority2></Priority2>
+                    <Priority3></Priority3>
+                    {/* <Priority1 />
                     <Priority2 />
-                    <Priority3 />
+                    <Priority3 /> */}
                 </div>
                 <div>
                     <Flowbite theme={{ theme: customTheme }}>
