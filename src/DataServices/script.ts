@@ -27,6 +27,7 @@ const addUser = async(user:addDTO) => {
     return data;
 }
 
+
 const addTask = async(task: ITasks) => {
     const res = await fetch(url + 'Task/AddTaskItem', {
         method: 'POST',
@@ -45,4 +46,45 @@ const addTask = async(task: ITasks) => {
     return data;
 }
 
-export {Login, addUser, addTask}
+const addBoard = async(newBoard: BoardDTO) => {
+
+    const promise = await fetch('https://tasktracksprint.azurewebsites.net/api/Board/AddBoard', {
+        method:'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newBoard)
+    });
+    const data = await promise.json();
+    console.log(data);
+    return data;
+
+}
+
+const getBoardsByUsername = async(name:string) => {
+
+    const promise = await fetch('https://tasktracksprint.azurewebsites.net/api/Board/GetBoardByUsername/'+name);
+    const data = await promise.json();
+    console.log(data);
+    return data;
+
+}
+
+const getTaskItems = async() => {
+
+    const promise = await fetch('https://tasktracksprint.azurewebsites.net/api/Task/GetAllTaskItems');
+    const data = await promise.json();
+    console.log(data);
+    return data;
+
+}
+
+const generateCode = async() => {
+    const promise = await fetch('https://tasktracksprint.azurewebsites.net/api/Board/GenerateRandomInviteCode');
+    const data = await promise.text();
+    return data;
+}
+
+export {Login, addUser, getTaskItems, addBoard, getBoardsByUsername, generateCode, Login, addUser, addTask}
+
