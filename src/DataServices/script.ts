@@ -86,5 +86,5 @@ const generateCode = async() => {
     return data;
 }
 
-export {Login, addUser, getTaskItems, addBoard, getBoardsByUsername, generateCode, Login, addUser, addTask}
+export {getTaskItems, addBoard, getBoardsByUsername, generateCode, Login, addUser, addTask}
 
